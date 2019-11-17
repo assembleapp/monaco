@@ -831,8 +831,8 @@ const generateTestSamplesTask = function() {
 	fs.writeFileSync(path.join(__dirname, 'test/playground.generated/index.html'), index.join('\n'));
 };
 
-gulp.task('simpleserver', taskSeries(generateTestSamplesTask, function() {
-	httpServer.createServer({ root: '../', cache: 5 }).listen(8080);
-	httpServer.createServer({ root: '../', cache: 5 }).listen(8088);
-	console.log('LISTENING on 8080 and 8088');
+gulp.task('now', taskSeries(generateTestSamplesTask, function() {
+  httpServer.createServer({ root: '../', cache: 5 }).listen(8080);
+  httpServer.createServer({ root: '../', cache: 5 }).listen(8088);
+  console.log('LISTENING on 8080 and 8088');
 }));
